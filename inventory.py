@@ -31,7 +31,6 @@ class LXCInventory(object):
         container_list = {}
 
         all_containers = self.execute_command(self.BASE_LXC_CMD).split()
-        print(all_containers)
 
         #check to ensure name format complies
         for item in all_containers:
