@@ -40,7 +40,7 @@ class LXCInventory(object):
         #init our roles
         for item in containers:
             container_list[item.split('-')[1]] = {}
-            container_list[item.split('-')[1]]['hosts'] = {}
+            container_list[item.split('-')[1]]['hosts'] = []
 
         #fill in the rest
         for item in containers:
@@ -48,8 +48,7 @@ class LXCInventory(object):
             ip_address = self.execute_command(self.BASE_LXC_CMD + self.BASE_LXC_IP_CMD % item).strip()
             state = self.execute_command(self.BASE_LXC_CMD + self.BASE_LXC_STATE_CMD % item).strip()
 
-            container_list[item.split('-')[1]]['hosts'][ip_address] = {}
-            container_list[item.split('-')[1]]['hosts'][ip_address]['vars'] = {'State': state}
+            container_list[item.split('-')[1]]['hosts'].append(ip_address)
 
         return container_list
 
