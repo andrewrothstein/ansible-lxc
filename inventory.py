@@ -13,7 +13,7 @@ class LXCInventory(object):
 
     def __init__(self):
 
-        self.BASE_LXC_CMD = 'lxc-ls'
+        self.BASE_LXC_CMD = 'sudo lxc-ls'
         self.BASE_LXC_IP_CMD = ' --fancy -F ipv4 %s | tail -1'
         self.BASE_LXC_STATE_CMD = ' --fancy -F state %s | tail -1'
 
